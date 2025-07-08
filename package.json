@@ -4,15 +4,14 @@
   "private": true,
   "homepage": "https://github.com/zenzen26/my-website",
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "export": "next export",
-  "start": "next start",
-  "lint": "next lint",
-  "predeploy": "cross-env NODE_ENV=production next build && next export",
-  "deploy": "gh-pages -d out"
-}
-
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint",
+    "predeploy": "cross-env NODE_ENV=production next build && next export",
+    "deploy": "gh-pages -d out"
+  },
   "dependencies": {
     "next": "15.3.5",
     "react": "^19.0.0",
