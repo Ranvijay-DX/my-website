@@ -2,13 +2,13 @@
   "name": "my-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/zenzen26/my-website",
+ "homepage": "https://zenzen26.github.io/my-website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "cross-env DEPLOY_TARGET=gh-pages NODE_ENV=production next build",
+    "predeploy": "DEPLOY_TARGET=gh-pages NODE_ENV=production next build",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
