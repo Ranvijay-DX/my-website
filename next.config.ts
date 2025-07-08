@@ -1,17 +1,32 @@
 import type { NextConfig } from 'next';
 
+const isGhPages = process.env.DEPLOY_TARGET === 'gh-pages';
+const isProd = process.env.NODE_ENV === 'production';
 const repo = 'my-website';
 
-const isProd = process.env.NODE_ENV === 'production';
-const isGhPages = process.env.DEPLOY_TARGET === 'gh-pages' || process.env.GITHUB_ACTIONS === 'true';
+let baseUrl;
 
+switch (process.env.NEXT_PUBLIC_STAGE?.trim()) {
+  case 'DEV':
+    baseUrl = 'https://google.com/';
+    break;
+  case 'UAT':
+    baseUrl = 'https://google.com/';
+    break;
+  case 'PROD':
+    baseUrl = 'https://google.com/';
+    break;
+  default:
+    baseUrl = 'https://google.com/';
+    break;
+}
+
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   crossOrigin: 'anonymous',
   trailingSlash: true,
-  env: {
-    baseUrl: 'https://google.com/', // update as needed, or inject via env vars
-  },
+  env: { baseUrl },
   typescript: { ignoreBuildErrors: false },
   images: {
     unoptimized: true,
@@ -25,8 +40,6 @@ const nextConfig: NextConfig = {
     ],
   },
   output: 'export',
-
-  // Use basePath and assetPrefix only when deploying to GitHub Pages in prod or in GitHub Actions env
   basePath: isGhPages && isProd ? `/${repo}` : '',
   assetPrefix: isGhPages && isProd ? `/${repo}/` : '',
 };
