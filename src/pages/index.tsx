@@ -2,9 +2,6 @@
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>My Peach Website</title>
-      </Head>
       <main className="min-h-screen flex items-center justify-center text-center p-4 text-foreground bg-background">
         <div>
           <h1 className="text-4xl font-bold mb-4">Welcome to My Website</h1>

@@ -2,12 +2,13 @@
   "name": "my-website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/zenzen26/my-website",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "DEPLOY_TARGET=gh-pages NODE_ENV=production next build",
+    "predeploy": "cross-env DEPLOY_TARGET=gh-pages NODE_ENV=production next build",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
     "gh-pages": "^6.3.0",
